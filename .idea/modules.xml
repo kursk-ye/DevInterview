@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DeverInterview.iml" filepath="$PROJECT_DIR$/DeverInterview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/java/C_expert/C_expert.iml" filepath="$PROJECT_DIR$/src/java/C_expert/C_expert.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DevInterview.iml" filepath="$PROJECT_DIR$/DevInterview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/java/A_junior/lightmvc/lightmvc.iml" filepath="$PROJECT_DIR$/src/java/A_junior/lightmvc/lightmvc.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.min.js"></script>	
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+<style type="text/css">
+.div-login div{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+</style>
+</head>
+<body>
+
+<form id="myform" method="post">
+<div class="div-login" style="left: 50%;position: absolute;margin-left: -100px;width: 200px;text-align: center; margin-top: 150px;">
+	<h1>系统登录</h1><input id="userNumber" name="userNumber" type="text" style="width:200px"/>
+	<div>
+		<input id="pwd" name="pwd" type="text" style="width:200px;margin-top: 20px;margin-bottom: 20px;"/>
+	</div>
+	<a id="btn_login" href="#" style="width: 200px;" onclick="doSubmit2()">登录</a>
+</div>
+</form>
+<script>  
+$(function(){
+	//初始化easyui控件
+   $('#userNumber').textbox({
+   						prompt:'请输入账号',
+                        iconCls:'icon-man',
+                        iconAlign:'right'
+                    });
+   $('#pwd').passwordbox({
+                            prompt: '请输入密码',
+                            iconCls:'icon-lock',
+                        iconAlign:'right'
+                        });
+   $('#btn_login').linkbutton({
+    //iconCls: 'icon-search'
+	});
+});
+
+
+//第一种写法，使用easyui的form提交来调用接口,但由于form提交方式在本地运html行时接收不到返回值，
+//因此已在接口文档里注明需要用标准ajax方式来调用。参见doSubmit2
+function doSubmit(){
+$('#myform').form('submit', {
+    url:"http://host908261708.s249.pppf.com.cn/hdkj/login.php",
+    onSubmit: function(){
+		// do some check
+		// return false to prevent submit;
+    },
+    success:function(data){
+		alert(data);
+		console.log(data);
+		if(data.status == 0){
+			$.messager.alert('提示','登录成功');
+					
+		}else{
+			$.messager.alert('提示','账号或密码不正确');
+		}
+    }
+});
+}
+
+
+//第二种写法，使用标准的ajax来调用接口
+function doSubmit2(){
+	var userNumber = $("#userNumber").val();
+	var pwd = $("#pwd").val();
+	 $.ajax({
+            type: "POST",
+            url: "http://host908261708.s249.pppf.com.cn/hdkj/login.php",
+            data:{userNumber:userNumber,pwd:pwd},
+			dataType: "json",
+            success:function (data) {
+				console.log(data);
+				if(data.status == 0){
+					$.messager.alert('提示','登录成功');
+					
+				}else{
+					$.messager.alert('提示','账号或密码不正确');
+				}
+            },
+            error:function (data) {
+				$.messager.alert('提示','系统错误');
+				console.log(data);
+            }
+        });
+}
+
+
+ </script>
+</body>
+</html>

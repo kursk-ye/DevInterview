@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index</title>
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="jquery-easyui-1.7.0/themes/icon.css">
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.min.js"></script>	
+<script type="text/javascript" src="jquery-easyui-1.7.0/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="jquery-easyui-1.7.0/locale/easyui-lang-zh_CN.js"></script>
+<style type="text/css">
+body{
+padding: 50px;
+}
+
+#span_1{
+margin-right:10px;
+}
+
+
+
+#btn_find{
+margin-left:10px;
+}
+</style>
+</head>
+<body>
+
+<form id="ff" method="post">
+<div class="div-search" style="">
+<span id="span_1">部门</span><select id="cc" style="width:200px;" ></select> <a id="btn_search" href="#" style="" onclick="getData()">查询</a><a id="btn_find" href="#" style="" onclick="find()">定位</a>
+ </div>
+</form>
+<div id="div-grid">
+<h3>人员列表</h3>
+<table id="dg"></table>
+</div>
+ <script>  
+
+$(function(){
+//初始化下拉列表树
+$('#cc').combotree({
+    url:'http://host908261708.s249.pppf.com.cn/hdkj/treeNode.php?id=0',
+});
+
+$('#dg').datagrid({
+    //url:'http://host908261708.s249.pppf.com.cn/hdkj/getUserList.php?orgid=1',
+    columns:[[
+		{field:'usernumber',title:'用户编号',width:100},
+		{field:'username',title:'用户名',width:100}
+	
+    ]],
+	//	data: [
+	//	{userNumber:'2001', userName:'张三'}
+	//]
+});
+
+   $('#btn_search').linkbutton({
+    iconCls: 'icon-search'
+	});
+
+
+	$('#btn_find').linkbutton({
+    //iconCls: 'icon-search'
+	});
+
+
+
+	
+});
+
+
+function getData(){
+//获取当前combotree的tree对象
+var tree = $('#cc').combotree('tree'); 
+//获取当前选中的节点
+var selectedNode = tree.tree('getSelected'); 
+console.log(selectedNode.id);
+var url='http://host908261708.s249.pppf.com.cn/hdkj/getUserList.php?orgid='+selectedNode.id;
+$('#dg').datagrid('options').url=url;
+$('#dg').datagrid('reload');
+}
+
+function getData2(){
+$.ajax({
+	type: 'GET',
+	url:'http://host908261708.s249.pppf.com.cn/hdkj/getUserList.php?orgid=1',
+	dataType: 'json',
+	error: function(){
+		return false;
+	},
+	success:function(json)
+	{
+		$("#dg").datagrid("loadData", json);
+	    //alert("加载成功！");
+	}
+});
+}
+
+
+
+function find(){
+//console.log($('#dg').datagrid('getRows'));
+var rowData = $('#dg').datagrid('getRows');
+	$(rowData).each(function(index,element){
+		//console.log(index);
+		if(this.usernumber=='2000'){
+			$(".datagrid-row").eq(index).css('background-color','#e43232');
+		}
+	});
+}
+
+
+
+ </script>
+</body>
+</html>
