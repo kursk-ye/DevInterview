@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62f4a8cc-7e40-41e0-a798-b0bcebc6e5f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraduateCollegeStudent/Backend.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraduateCollegeStudent/DataAnalysis.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GraduateCollegeStudent/Frontend.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="62f4a8cc-7e40-41e0-a798-b0bcebc6e5f9" name="Default Changelist" comment="大学生面试题目" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +86,16 @@
       <workItem from="1558491366545" duration="57000" />
       <workItem from="1678765340408" duration="1024000" />
       <workItem from="1678774859245" duration="689000" />
+      <workItem from="1678787388323" duration="484000" />
     </task>
+    <task id="LOCAL-00001" summary="大学生面试题目">
+      <created>1678787459602</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678787459602</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -152,6 +152,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="大学生面试题目" />
+    <option name="LAST_COMMIT_MESSAGE" value="大学生面试题目" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.vmoptions">
